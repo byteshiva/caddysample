@@ -4,7 +4,14 @@
   tls off
   #header / Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
   root /data/data/com.termux/files/home/tmp/tempsite/caddysample
-  git {
+  ipfilter / {
+    rule allow
+    #database /data/GeoLite.mmdb
+    blockpage default.html
+    country US JP
+  }
+
+   git {
     repo github.com/byteshiva/caddysample
     interval 2
   }
